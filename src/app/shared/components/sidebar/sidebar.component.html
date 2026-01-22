@@ -2,10 +2,15 @@
 <hr>
 
 <ul class="list-group">
-  <li class="list-group-item">
+  <li routerLink="home"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}"
+   class="list-group-item">
     Home Page
   </li>
-  <li class="list-group-item">
+  <li routerLink="about"
+  routerLinkActive="active"
+   class="list-group-item">
     About Page
   </li>
 </ul>
