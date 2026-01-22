@@ -14,7 +14,8 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
     CommonModule
   ],
   exports: [
-    HomePageComponent
+    HomePageComponent,
+    AboutPageComponent
   ]
 })
 export class SharedModule { }
