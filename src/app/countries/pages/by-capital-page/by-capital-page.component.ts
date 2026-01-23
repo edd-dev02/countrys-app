@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class ByCapitalPageComponent {
 
+  public placeholder: string = "Buscar por capital"
+
 }
