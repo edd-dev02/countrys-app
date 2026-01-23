@@ -18,6 +18,10 @@ const routes: Routes = [
     component: ContactPageComponent
   },
   {
+    path: "countries",
+    loadChildren: () => import("./countries/countries.module").then(m => m.CountriesModule) // Carga perezosa del módulo
+  },
+  {
     path: "**",
     redirectTo: "home"
   },
