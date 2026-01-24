@@ -14,7 +14,11 @@
   <div class="col">
 
     <!--tabla de resultados-->
-
+    <ul>
+      <li *ngFor="let country of countries">
+        {{ country.capital | json}}
+      </li>
+    </ul>
 
   </div>
 </div>
