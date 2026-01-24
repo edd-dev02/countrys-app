@@ -9,4 +9,9 @@ export class ByCapitalPageComponent {
 
   public placeholder: string = "Buscar por capital"
 
+  public searchByCapital(term: string): void {
+    console.log("Desde by-capital page");
+    console.log({term});
+  }
+
 }

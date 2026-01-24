@@ -5,7 +5,7 @@
   <div class="col">
 
     <!--searchbox-->
-    <shared-search-box [InputSearchBox]="placeholder"></shared-search-box>
+    <shared-search-box [InputSearchBox]="placeholder" (OutputSearchbox-term)="searchByCapital($event)"></shared-search-box>
 
   </div>
 </div>
