@@ -3,20 +3,33 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { Country } from '../interfaces/country.interface';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class CountriesService {
 
   private baseUrl: string = "https://restcountries.com/v3.1";
 
   constructor(private httpClient: HttpClient) { }
 
-  public searchCapital( term: string ): Observable<Country[]> {
+  public searchCapital(term: string): Observable<Country[]> {
 
     const url = `${this.baseUrl}/capital/${term}`;
 
-    return this.httpClient.get<Country[]>( url )
+    return this.httpClient.get<Country[]>(url)
       .pipe(
-        catchError( error => {
+        catchError(error => {
+          console.log(error);
+          return of([]);
+        }
+        )
+      )
+  }
+
+  public searchCountry(term: string): Observable<Country[]> {
+    const url = `${this.baseUrl}/name/${term}`;
+
+    return this.httpClient.get<Country[]>(url)
+      .pipe(
+          catchError(error => {
             console.log(error);
             return of([]);
           }
