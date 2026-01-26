@@ -5,7 +5,12 @@ import { Country } from '../../interfaces/country.interface';
 @Component({
   selector: 'app-by-capital-page',
   templateUrl: './by-capital-page.component.html',
-  styles: ``
+  styles: [
+    `img {
+      width: 25px;
+    }
+    `
+  ]
 })
 export class ByCapitalPageComponent {
 
