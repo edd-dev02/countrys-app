@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, map, Observable, of, tap } from 'rxjs';
+import { catchError, delay, map, Observable, of, tap } from 'rxjs';
 import { Country } from '../interfaces/country.interface';
 
 @Injectable({ providedIn: 'root' })
@@ -18,7 +18,8 @@ export class CountriesService {
           console.log(error);
           return of([]);
         }
-        )
+        ),
+        delay(2000) // Delay para tardar dos segundos al momento de regresar el arreglo de resultados
       );
 
   }
