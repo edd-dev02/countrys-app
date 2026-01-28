@@ -10,20 +10,7 @@ export class CountriesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public searchCountryByAlphaCode(code: string): Observable<Country | null> {
-    const url = `${this.baseUrl}/alpha/${code}`;
-
-    return this.httpClient.get<Country[]>(url)
-      .pipe(
-        map( countries => countries.length > 0 ? countries[0] : null),
-        catchError(() => of (null))
-
-      )
-  }
-
-  public searchCapital(term: string): Observable<Country[]> {
-
-    const url = `${this.baseUrl}/capital/${term}`;
+  private getCountriesRequest(url: string): Observable<Country[]> {
 
     return this.httpClient.get<Country[]>(url)
       .pipe(
@@ -32,33 +19,38 @@ export class CountriesService {
           return of([]);
         }
         )
+      );
+
+  }
+
+  public searchCountryByAlphaCode(code: string): Observable<Country | null> {
+    const url = `${this.baseUrl}/alpha/${code}`;
+
+    return this.httpClient.get<Country[]>(url)
+      .pipe(
+        map(countries => countries.length > 0 ? countries[0] : null),
+        catchError(() => of(null))
+
       )
+  }
+
+  public searchCapital(term: string): Observable<Country[]> {
+
+    const url = `${this.baseUrl}/capital/${term}`;
+
+    return this.getCountriesRequest(url);
   }
 
   public searchCountry(term: string): Observable<Country[]> {
     const url = `${this.baseUrl}/name/${term}`;
 
-    return this.httpClient.get<Country[]>(url)
-      .pipe(
-          catchError(error => {
-            console.log(error);
-            return of([]);
-          }
-        )
-      )
+    return this.getCountriesRequest(url);
   }
 
   public searchRegion(term: string): Observable<Country[]> {
     const url = `${this.baseUrl}/region/${term}`;
 
-    return this.httpClient.get<Country[]>(url)
-      .pipe(
-          catchError(error => {
-            console.log(error);
-            return of([]);
-          }
-        )
-      )
+    return this.getCountriesRequest(url);
   }
 
 }
