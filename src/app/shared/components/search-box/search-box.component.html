@@ -1,7 +1,18 @@
+<!--
 <input
   type="text"
   [placeholder]="placeholder"
   class="form-control"
   #txtInput
   (keyup.enter)="emitTerm(txtInput.value)"
+>
+-->
+
+<!-- Peticiones de búsqueda mediante Debounce -->
+ <input
+  type="text"
+  [placeholder]="placeholder"
+  class="form-control"
+  #txtInput
+  (keyup)="onKeyPress(txtInput.value)"
 >

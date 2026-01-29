@@ -19,7 +19,7 @@ export class CountriesService {
           return of([]);
         }
         ),
-        delay(2000) // Delay para tardar dos segundos al momento de regresar el arreglo de resultados
+        // delay(500)  Delay para tardar dos segundos al momento de regresar el arreglo de resultados
       );
 
   }
