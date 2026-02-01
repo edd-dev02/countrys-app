@@ -18,6 +18,7 @@
 
     <shared-search-box
       [InputSearchBox]="placeholder"
+      [InputSearchBox-term]="initialValue"
       (OutputSearchbox-debounce)="searchByCountry($event)"
       >
     </shared-search-box>
